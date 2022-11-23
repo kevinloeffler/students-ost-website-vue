@@ -7,6 +7,7 @@
     "dev": "concurrently --kill-others \"npm run dev-api\" \"npm run dev-app\"",
     "dev-app": "cd ./app/ && vite",
     "dev-api": "cd ./api/ && nodemon server.ts",
+    "build": "npm run build-api && npm run build-app",
     "build-app": "cd ./app/ && vue-tsc && vite build",
     "build-api": "cd ./api/ && tsc",
     "preview": "vite preview"
