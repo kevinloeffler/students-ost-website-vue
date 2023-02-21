@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "outDir": "./built",
-    "target": "es6",
-    "module": "es6",
+    "target": "es2017",
+    "module": "esnext",
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    // "typeRoots": ["./@types"]
+    // "paths": { "*": ["./@types/*"] }
   },
   "ts-node": {
     "esm": true
