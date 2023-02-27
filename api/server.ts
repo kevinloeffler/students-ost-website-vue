@@ -1,13 +1,16 @@
 import express from 'express'
+import cors from 'cors'
 import {databaseManager} from './DatabaseManager.js'
-
-const res = await databaseManager.getNextEvents()
-// console.log('DB Response:', res)
-console.log('First Event ID:', res?.[0].eventId)
 
 const port = process.env.PORT || 3000
 
+const corsOptions = {
+    // TODO: add origin for production server
+    origin: 'http://localhost:5173'
+}
+
 const app = express()
+app.use(cors(corsOptions))
 
 /***** ROUTES *****/
 
@@ -16,6 +19,7 @@ app.get('/api/hello', function(req, res) {
 })
 
 app.get('/api/events', async function (req, res) {
+    // TODO: use a query param to specify the number of events
     res.json(await databaseManager.getNextEvents())
 })
 
